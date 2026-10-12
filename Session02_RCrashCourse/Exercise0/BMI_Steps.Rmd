@@ -1,0 +1,71 @@
+---
+title: "Exercise 0: BMI and daily steps"
+subtitle: "Introduction to Social Data Science &ndash; University of Konstanz"
+author: "David Garcia, Winter Semester 2026/27"
+output:
+  html_document:
+    css: ../../assets/unikn-notebook.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This exercise practices what you learned in the R crash course of Session 2: reading data, working with data frames, summary statistics, correlation (Session 1) and plots. Work in this file: write your code in the chunks marked `# Your code here`, answer the questions in the text below them, and knit the file to HTML when you are done.
+
+The file `BMI-steps.csv` in this folder contains data on 1786 people: the average number of **steps** they walk per day, their body mass index (**bmi**), and their **gender**. A common hypothesis is that people who walk more have a lower BMI. Let's see what these data say.
+
+## 1. Load and inspect the data
+
+**Read the file BMI-steps.csv into a data frame called `df`. How many rows and columns does it have? Print the first rows and a summary of each column.**
+
+```{r}
+df <- read.csv("BMI-steps.csv")
+# Your code here
+```
+
+## 2. Summary statistics
+
+**Calculate the mean, median and standard deviation of steps and of BMI. Then calculate the mean number of steps and the mean BMI separately for women and for men.**
+
+Hint: you can select the rows of one group like in the crash course, e.g. `df[df$gender == "woman", ]`.
+
+```{r}
+# Your code here
+```
+
+**Plot a histogram of steps and a histogram of BMI. Do the distributions look like you expected?**
+
+```{r}
+# Your code here
+```
+
+## 3. Correlation
+
+**Calculate the Pearson correlation coefficient between steps and BMI with `cor()`. Is it positive or negative? Is it strong or weak?**
+
+```{r}
+# Your code here
+```
+
+**Now calculate the correlation separately for women and for men. Is it different?**
+
+```{r}
+# Your code here
+```
+
+**What would you conclude about the hypothesis from these numbers alone?**
+
+*Your answer here.*
+
+## 4. Look at the data
+
+**Make a scatter plot with steps on the x-axis and BMI on the y-axis. Colour the points by gender, for example with `col = ifelse(df$gender == "woman", "red", "blue")` inside `plot()`.**
+
+```{r}
+# Your code here
+```
+
+**Do you notice anything else? What does this tell you about computing statistics before looking at the data? Think back to the Datasaurus dozen at the end of Session 1.**
+
+*Your answer here.*
