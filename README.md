@@ -18,11 +18,11 @@ I am the Professor for Social and Behavioral Data Science at the University of K
 
 If your installation does not work, you can run all course materials in your browser with Posit Cloud: create a *New Project from Git Repo* with the address `https://github.com/dgarcia-eu/SDS_Intro_Konstanz` (see the [Posit Cloud fallback](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/setup/Setup.html#fallback-posit-cloud)).
 
-Setup files: [[Setup instructions]](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/setup/Setup.html), [[install_packages.R]](https://github.com/dgarcia-eu/SDS_Intro_Konstanz/blob/main/setup/install_packages.R), [[Setup check]](https://github.com/dgarcia-eu/SDS_Intro_Konstanz/blob/main/setup/SetupCheck.Rmd)
+Setup files: [[Setup instructions]](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/setup/Setup.html), [[Setup zipped folder]](https://download-directory.github.io/?url=https://github.com/dgarcia-eu/SDS_Intro_Konstanz/tree/main/setup)
 
 ## Course Contents
 
-The course is organized in weekly sessions of 90 minutes. Some sessions are mostly a lecture with slides, others are practical sessions in which we work  through an R Markdown notebook together. There is an R crash course and five exercises for you to apply what you learned, about one every two weeks. Each exercise starts at the end of a practical session, you continue it at home, and we discuss the results together in a later session. The exercises are not graded but develop the necessary skills to do the final project, which is the basis for the final grade. In exercises, you collect your own data to answer Social Data Science questions.
+The course is organized in weekly sessions of 90 minutes. Some sessions are mostly a lecture with slides, others are practical sessions in which we work  through an R Markdown notebook together. There is an R crash course and five exercises for you to apply what you learned, about one every two weeks. Each exercise starts at the end of a practical session, you continue it at home, and we discuss the results together in a later session. The exercises are not graded but develop the necessary skills to do the final project, which is the basis for the final grade. In exercises, you collect your own data to answer Social Data Science questions. You can submit your solutions to exercises before we discuss them to get extra points.
 
 **Session 1: Introduction to Social Data Science** -- 19.10.2026  
 1.1. Introduction to Social Data Science  
@@ -38,7 +38,7 @@ The course is organized in weekly sessions of 90 minutes. Some sessions are most
 3.1. Accessing the World Development Indicators from R  
 3.2. Google Trends data in R  
 3.3. Correlation and Linear Regression  
-[[Notebook]](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/Session03_RetrievingData/Notebook/Session03_Notebook.html) -- [[Tutorial files]](https://download-directory.github.io/?url=https://github.com/dgarcia-eu/SDS_Intro_Konstanz/tree/main/Session03_RetrievingData/Notebook)  
+[[Slides]](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/Session03_RetrievingData/Slides/Session03_Slides.html) -- [[Notebook]](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/Session03_RetrievingData/Notebook/Session03_Notebook.html) -- [[Tutorial files]](https://download-directory.github.io/?url=https://github.com/dgarcia-eu/SDS_Intro_Konstanz/tree/main/Session03_RetrievingData/Notebook)  
 [Exercise 1: Google Trends: Do richer countries look more to the future?](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/Session03_RetrievingData/Exercise1/GDP_FOI_Short.html) -- [[Exercise materials zip]](https://download-directory.github.io/?url=https://github.com/dgarcia-eu/SDS_Intro_Konstanz/tree/main/Session03_RetrievingData/Exercise1)  
 
 **Session 4: Social dynamics** -- 09.11.2026  
@@ -55,7 +55,7 @@ The course is organized in weekly sessions of 90 minutes. Some sessions are most
 **Session 6: APIs and Wrappers** -- 23.11.2026  
 6.1. Accessing APIs  
 6.2. Wrappers: Bluesky as an example  
-6.3. Discussion of Exercise 1
+6.3. Discussion of Exercise 1  
 [[Notebook]](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/Session06_AccessingAPIs/Notebook/Session06_Notebook.html) -- [[Tutorial files]](https://download-directory.github.io/?url=https://github.com/dgarcia-eu/SDS_Intro_Konstanz/tree/main/Session06_AccessingAPIs/Notebook)  
 [Exercise 2: Is there division of social impact on Bluesky?](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/Session06_AccessingAPIs/Exercise2/SIT_Bluesky.html) -- [[Exercise materials zip]](https://download-directory.github.io/?url=https://github.com/dgarcia-eu/SDS_Intro_Konstanz/tree/main/Session06_AccessingAPIs/Exercise2)  
 
@@ -76,14 +76,14 @@ The course is organized in weekly sessions of 90 minutes. Some sessions are most
 **Session 9: Social network basics** -- 21.12.2026  
 9.1. Introduction to Social Networks  
 9.2. The Friendship Paradox  
-9.3. Centrality in Social Networks
-9.4. Discussion of Exercise 2
+9.3. Centrality in Social Networks  
+9.4. Discussion of Exercise 2  
 [[Slides]](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/Session09_SocialNetworkBasics/Slides/Session09_Slides.html)  
 
 **Session 10: Network data in R** -- 11.01.2027  
 10.1. Handling network data in R  
-10.2. Reading Twitter network data from JSON
-10.3 Discussion of Exercise 3
+10.2. Reading Twitter network data from JSON  
+10.3 Discussion of Exercise 3  
 [[Notebook]](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/Session10_NetworkDataInR/Notebook/Session10_Notebook.html) -- [[Tutorial files]](https://download-directory.github.io/?url=https://github.com/dgarcia-eu/SDS_Intro_Konstanz/tree/main/Session10_NetworkDataInR/Notebook)  
 [Exercise 4: The retweet network of Swiss politicians](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/Session10_NetworkDataInR/Exercise4/PoliticianNetwork.html) -- [[Exercise materials zip]](https://download-directory.github.io/?url=https://github.com/dgarcia-eu/SDS_Intro_Konstanz/tree/main/Session10_NetworkDataInR/Exercise4)  
 
@@ -95,7 +95,7 @@ The course is organized in weekly sessions of 90 minutes. Some sessions are most
 
 **Session 12: Network analysis in R** -- 25.01.2027  
 12.1. Network analysis in R  
-12.2. Discussion of Exercise 4
+12.2. Discussion of Exercise 4  
 [[Notebook]](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/Session12_NetworkAnalysisInR/Notebook/Session12_Notebook.html) -- [[Tutorial files]](https://download-directory.github.io/?url=https://github.com/dgarcia-eu/SDS_Intro_Konstanz/tree/main/Session12_NetworkAnalysisInR/Notebook)  
 
 **Session 13: Recap, projects, Q&A** -- 1.02.2027
@@ -113,9 +113,11 @@ The course grade is based on two parts:
 1. A final project report report (max. 6 pages, min. font size 11pt), with R codes attached that generate the results of the project (numeric grade). **Deadline: 15.03.2027**
 2. An online presentation with Q&A to evaluate student understanding of the project (pass/fail, Studienleistung). **Take place between 23.03 and 31.03.2027, exact slots TBD** 
 
-The online presentation has only a pass/fail grade and it is necessary to pass it to pass the course. It takes place after the report submission to allow evaluators to consider the submission in the Q&A. The final course grade is the numeric grade of the report.
+The online presentation has only a pass/fail grade and it is necessary to pass it to pass the course. It takes place after the report submission to allow me to consider the submission in the Q&A. The final course grade is the numeric grade of the report.
 
-You can receive input on project ideas and plans during the lectures and in consultations you can book over email. You can also submit a project plan as explained below to get better structured input. Do ask for input soon. There will be a window for consultations that will close two weeks before the report deadline. [You can read more about the projects in this guide.]()
+You can receive input on project ideas and plans during the lectures and in consultations you can book over email. You can also submit a project plan as explained below to get better structured input. Do ask for input soon. There will be a window for consultations that will close two weeks before the report deadline. [You can read more about the projects in this guide.](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/ProjectsGuide.html)
+
+Additionally, you can submit your solutions to exercises 1-4 to achieve bonus points. If you send two or three solutions that pass, you will get a bonus of 0.3 in your grade. If you submit all four and pass, you will get a bonus 0.6 in your grade. **The deadline for the submission of exercise solutions for bonus points is the day before the exercise is discussed in class.**
 
 
 ## To learn more about my research in Social Data Science
