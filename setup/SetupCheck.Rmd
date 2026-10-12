@@ -1,0 +1,58 @@
+---
+title: "Setup check"
+subtitle: "Introduction to Social Data Science &ndash; University of Konstanz"
+author: "David Garcia, Winter Semester 2026/27"
+output:
+  html_document:
+    css: ../assets/unikn-notebook.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Knit this file** (the *Knit* button at the top of the editor in RStudio). If you get an HTML page with a plot and "Everything is ready" at the end, your setup works and you are ready for Session 2. Nothing here is graded.
+
+If knitting stops with an error, read the last lines of the error message: they usually say which package is missing. Run `source("setup/install_packages.R")` again, or follow the Posit Cloud fallback in [Setup.md](Setup.md).
+
+## 1. Your R version
+
+The course needs R 4.1 or newer.
+
+```{r}
+R.version.string
+stopifnot(getRversion() >= "4.1.0")
+```
+
+## 2. The course packages
+
+This chunk lists the packages that are not installed yet. It should print `character(0)`.
+
+```{r}
+packages <- c("rmarkdown", "knitr", "dplyr", "ggplot2", "stringr", "boot", "WDI", "gtrendsR",
+              "httr", "jsonlite", "syuzhet", "tidytext", "textdata", "schrute", "tm", "vader",
+              "MLmetrics", "tidygraph", "ggraph", "ggrepel")
+missing <- setdiff(packages, rownames(installed.packages()))
+missing
+```
+
+## 3. Reading data and making a plot
+
+R comes with some example datasets. Here we compute a correlation and plot the weight and fuel consumption of 32 car models from 1974:
+
+```{r}
+library(ggplot2)
+cor(mtcars$wt, mtcars$mpg)
+ggplot(mtcars, aes(x = wt, y = mpg)) + geom_point() + theme_bw() +
+  xlab("Weight (1000 lbs)") + ylab("Miles per gallon")
+```
+
+## 4. Result
+
+```{r, echo=FALSE, results="asis"}
+if (length(missing) == 0) {
+  cat("**Everything is ready.** See you in Session 2!")
+} else {
+  cat("**Almost there:** install the missing packages listed above with `source(\"setup/install_packages.R\")` and knit this file again.")
+}
+```

@@ -1,0 +1,115 @@
+---
+title: "Introduction to Social Data Science: Projects Guide"
+author: "Prof. David Garcia"
+output:
+  html_document:
+    toc: false
+  pdf_document:
+    toc: false
+fontsize: 11pt
+geometry: a4paper
+urlcolor: blue
+---
+
+# Grading
+
+Project grading will be based on two parts:
+
+1. The final text of the report **(max. 6 pages, min. font size 11pt)**, with R codes attached that generate the results of the project
+2. An online presentation with Q&A to evaluate student understanding of the project
+
+The online presentation has only a pass/fail grade and it is necessary to pass it to pass the course. It takes place after the report submission to allow evaluators to consider the submission in the Q&A. The final course grade is the numeric grade of the report.
+
+You can receive input on project ideas and plans during the lectures and in consultations you can book over email. You can also submit a project plan as explained below to get better structured input. Do ask for input soon. There will be a window for consultations that will close two weeks before the report deadline.
+
+# Project parts
+
+A good final report of a project in Social Data Science has seven parts:
+
+1. **Motivation:** What question do you seek to answer and why?
+2. Project plan: Identify the tasks to be done to answer the question
+3. Data retrieval: Use interfaces and resources to collect all data necessary for the project
+4. Data processing: Filter data, normalize values, and compute additional variables
+5. **Analysis:** Perform statistical analyses and visualizations that assess the question
+6. **Conclusion:** Evaluate answers to the question and their reliability
+7. **Critique:** Identify limitations and alternative explanations
+
+The four parts in boldface weigh more in the final grade, but the other three parts also have to be reported so the project can be graded. Optionally, you can submit over email a **short project description** that covers the **motivation and project plan**. This description sets the question of the project and describes the expected results and cannot be changed after the description deadline.
+
+The presentation of the project is also taken into account in the grade. Plots should be correctly shown (named axes, visible scales) and writing has to be understandable. Extra points are given when projects are based on open science principles (e.g. data is available in a Github repository) and when data sources or methods go beyond what is covered in the course.
+
+The **motivation** part is very important. Argue why your project is relevant and what we can learn about human behavior with it.
+
+Be careful with statistics in the **analysis** part. Use the methods covered in the course to assess the uncertainty of your anwsers and comment on these results in the **conclusion** part.
+
+The **critique** part is essential. An important objective of this course is to develop a critical understanding of the opportunities and limitations of the data and methods we will use.
+
+# Frequently asked questions
+
+**Do I have to work in a group?**
+
+No, these are purely individual projects. Feel free to talk with your colleagues and get help but do not copy code from any online resource, neither github nor stack overflow nor a coding bot. You risk not understanding your code and failing the presentation.
+
+**Do we need to start with a question?**
+
+Yes, and this question has to be relevant about human behavior. Remember that Social Data Science is not data-driven, so please do not start with a cool dataset and then see what to do with it. In general, good research questions in Social Data Science can be answered with a yes/no answer or with a number. For example: "are emotional tweets retweeted more often?" or "is there a correlation between Twitter misspelling frequency and unemployment?". Questions that start with "how" or "what" are usually not good, like "how do people use TikTok?" or "what is Switzerland's favorite Pokemon?".
+
+**Can we change the question?**
+
+You should decide when you commit to your question, for example if you send a project description over email. I very much recommend doing so to avoid pivoting too much and getting lost. You can always add analyses and robustness to your results. If you have problems regarding methods or data, you should document that in your project, but not change the question because of that. Your project description works as a registration, you should say what are your expectations and how you plan to address them.
+
+**What if some dataset or method turns out to work differently than we planned?**
+
+This can always happen and there is no problem with changing some plans about the data retrieval or analysis, as long as you document these well in your report and argue about the changes. What should be careful with is when you consider changing the question and motivation of your project, or if you do arbitrary or unjustified changes to your plan. Do talk to me if you have doubts but do it early.
+
+**What if I don't get "nice" results or don't fit our expectations?**
+
+As long as you followed your plan, the particular results that you get will not factor into the grade. If you get a negative result or a surprising answer, comment on that in the conclusion section and reflect on it in your critique section. What you should be is confident that you are applying the appropriate methods to the right data.
+
+**Can our question be about methods rather than testing a hypothesis?**
+
+Yes, but make sure to motivate why those methods are important to Social Data Science and how understanding them can help us to study human behavior. For example, your question could be "can we adapt VADER to German?" or "is the Future Orientation Index stable across years?". You can also identify unresolved methodological problems and address them with empirical data in your project.
+
+**Can our question be about generating a new dataset?**
+
+Also yes, but explain why that dataset doesn't exist yet and which kind of analyses about human behavior it can enable. Focus your question and analyses on validating the quality of the dataset and providing descriptive statistics and visualizations that can help others to use the dataset. In this case, make sure that you make the dataset accessible in a Github repository or other way to share data.
+
+**Do we have to use data in the project?**
+
+Well, the course contains the word "data" in the title. Critical discussions are welcome in the last part of the project and theoretical motivations in the first one, but make sure that your project has an empirical component.
+
+**Can we use a statistical method or model not covered by the course?**
+
+Yes, but make sure that you understand it well. Don't use a method just because someone told you to do so or because everyone in your field is using it, think critically and make sure that you don't just run some software and get a magical p-value or something like that. You should also briefly explain this method in your report and why you chose to use it.
+
+**How can we share our code and data with you?**
+
+You can send me R makdown files and attachments of at most 2MB in total with your submission. If you have larger data files, the best way is that you set up a Github repository and send me a link. You will get extra points if the repository is well documented and might help other people in their analyses!
+
+**Can I use a proprietary dataset I cannot share?**
+
+That's OK if it answers your question well but you won't qualify to get extra points for open science practices. I often run the code of projects myself and I cannot do that if you can't share the dataset.
+
+# Some project examples
+
+**Popularity assortativity of musicians in Spotify**
+
+- Retrieving data about the latest popular musicians on a genre through the Spotify API (sadly not easy to access any more).
+- Measurement of popularity given by Spotify. The project validated it by analyzing correlations with the number of followers of musicians.
+- Collaboration network between musicians based on co-authorship link of appearing in the same song. The project presented descriptive statistics of the network and visualizations.
+- Measurement of assortativity with respect to popularity, assessing it with a permutation test
+- Additional insights on the correlation between centrality and popularity
+
+**Testing Social Impact Theory in the case of COVID19**
+
+- Measuring impact through Google trends volumens and number of tweets with terms related to the disease
+- Immediacy measured as the distance between countries and early sources of spreading
+- Number of sources measured as deaths in those countries
+- The project focused on a series of countries where Twitter and Google are widely used
+
+**Sentiment about Donald Trump and income at the regional level**
+
+- Testing a hypothesis about a correlation between sentiment in tweets mentioning \#Trump in a region correlated and its income and education levels.
+- Used szuzhet and VADER. Manual annotation of some tweets showed limitations, for example some dictionaries have "trump" as a positive word.
+- Geographic location information based on text processing of user location.
+- Regression model including two education levels from census data too. Robustness with two sentiment analysis methods but not "shopping around methods"
