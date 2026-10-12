@@ -107,10 +107,6 @@ $Y = a + b_1 X_1 + b_2 X_2 + b_3 X_3 ... + \epsilon$
 
 ---
 
-![:scale 92%](https://pbs.twimg.com/media/EXRxFKwU4AAhB-x?format=jpg&name=large)
-
----
-
 # Example: FOI vs GDP
 
 ```{r echo=F, message=F, results='hide', fig.width=9, fig.align='center'}
