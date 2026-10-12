@@ -1,0 +1,327 @@
+/* ============================================================================
+ *  University of Konstanz corporate design for xaringan / remark.js
+ *
+ *  Port of the Quarto/reveal.js theme used in IntroToPython (assets/unikn.scss)
+ *  to xaringan. Colours follow the "Seeblau" ramp of the official CD templates.
+ *  Metrics (base font size, text size, padding) are kept as in the ETH
+ *  xaringanthemer style, so that the slide content fits as it did before.
+ * ========================================================================== */
+
+:root {
+  /* Seeblau */
+  --seeblau:  #00a9e0;   /* 100 %  primary accent   */
+  --seeblau4: #59c7eb;   /* ~65 %                   */
+  --seeblau3: #7fd4f0;   /* ~50 %                   */
+  --seeblau2: #a6e1f4;   /* ~35 %  title plates     */
+  --seeblau1: #cceef9;   /* ~20 %  soft fills       */
+
+  /* Neutrals */
+  --grau5: #333333;
+  --grau4: #666666;
+  --grau3: #999999;
+  --grau2: #cccccc;
+  --grau1: #e5e5e5;
+
+  /* Secondary CD colours (links, code, emphasis) */
+  --karpfenblau: #3e5496;
+  --petrol:      #00797b;
+  --seegruen:    #0a9086;
+  --bordeaux:    #8e2043;
+
+  --text-color: #111111;
+  --font: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-serif;
+  --code-font: "Fira Mono", Menlo, Consolas, Monaco, "Liberation Mono", "Lucida Console", monospace;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Fira+Mono&display=swap);
+
+html { font-size: 20px; }
+
+body {
+  font-family: var(--font);
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+/* remark.js base: black letterbox around the 16:9 slide */
+.remark-container { background: #2f3438; }
+
+.remark-slide-content {
+  background-color: #ffffff;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  padding: 12px 64px 30px 64px;   /* room at the bottom for the footer bar */
+  width: 100%;
+  height: 100%;
+  /* Uni Konstanz wordmark, top right on every slide. Slides that set their own
+     background-image (full-slide figures) replace it, which is intended. */
+  background-image: url(unikn-logo.png);
+  background-repeat: no-repeat;
+  background-position: right 22px top 16px;
+  background-size: auto 44px;
+}
+
+/* ============================================================================
+ *  Headings: rounded Seeblau plate, top left, soft drop shadow
+ * ========================================================================== */
+h1, h2, h3 {
+  font-family: var(--font);
+  font-weight: 400;
+  color: #111;
+  line-height: 1.2;
+}
+.remark-slide-content h1 { font-size: 2.1rem; }
+.remark-slide-content h2 { font-size: 1.85rem; }
+.remark-slide-content h3 { font-size: 1.6rem; }
+
+.remark-slide-content > h1:first-child,
+.remark-slide-content > h2:first-child,
+.remark-slide-content > h3:first-child,
+.remark-slide-content > .my-footer:first-child + h1,
+.remark-slide-content > .my-footer:first-child + h2,
+.remark-slide-content > .my-footer:first-child + h3,
+.remark-slide-content > .unikn-footer:first-child + h1,
+.remark-slide-content > .unikn-footer:first-child + h2,
+.remark-slide-content > .unikn-footer:first-child + h3 {
+  display: block;
+  width: fit-content;
+  max-width: 76%;            /* keep clear of the logo */
+  margin: 0.2em 0 0.35em 0;
+  padding: 0.08em 0.5em 0.12em;
+  background-color: var(--seeblau2);
+  border-radius: 8px;
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25);
+  text-align: left;
+}
+
+/* Centered slides keep a centered plate */
+.remark-slide-content.center > h1,
+.remark-slide-content.center > h2,
+.remark-slide-content.center > h3 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================================================
+ *  Title slide
+ * ========================================================================== */
+.remark-slide-content.title-slide {
+  text-align: center;
+  background-color: #ffffff;
+  background-position: right 30px top 24px;
+  background-size: auto 64px;
+}
+.title-slide .remark-slide-number { display: none; }
+
+.remark-slide-content.title-slide h1 {
+  display: block;
+  width: 86%;
+  max-width: 86%;
+  margin: 1.3em auto 0.9em;
+  padding: 0.35em 0.6em 0.45em;
+  background-color: var(--seeblau2);
+  border-radius: 26px;
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25);
+  font-size: 2.3rem;
+  line-height: 1.22;
+}
+.title-slide h1 .session {
+  display: block;
+  margin-top: 0.2em;
+  font-size: 0.66em;
+}
+.remark-slide-content.title-slide h2 {        /* subtitle */
+  font-size: 1.4rem;
+  color: var(--grau4);
+}
+.remark-slide-content.title-slide h3 {        /* author, date */
+  font-size: 1.5rem;
+  margin: 0.3em 0 0;
+}
+.title-slide h3 .semester {
+  display: block;
+  margin-top: 0.7em;
+  font-size: 0.8em;
+}
+
+/* ============================================================================
+ *  Section slides (start of each topic inside a session deck)
+ * ========================================================================== */
+.remark-slide-content.section {
+  text-align: center;
+}
+.remark-slide-content.section > h1,
+.remark-slide-content.section > .unikn-footer:first-child + h1 {
+  margin: 0 auto 0.4em;
+  max-width: 80%;
+  padding: 0.35em 0.8em 0.45em;
+  border-radius: 20px;
+  font-size: 2.3rem;
+}
+.remark-slide-content.section h2,
+.remark-slide-content.section h3 {
+  font-size: 1.4rem;
+  color: var(--grau4);
+}
+
+/* Outline slide ("Today") */
+.outline ol { margin-left: 0.4em; }
+.outline li { margin-bottom: 0.5em; }
+
+/* Legacy inverse class: Seeblau instead of dark grey */
+.inverse {
+  background-color: var(--seeblau2);
+  color: #111;
+}
+.inverse h1, .inverse h2, .inverse h3 { color: #111; }
+
+/* ============================================================================
+ *  Three-part Seeblau footer bar
+ * ========================================================================== */
+.unikn-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 28px;
+  display: flex;
+  align-items: stretch;
+  font-size: 13px;
+  line-height: 1.1;
+  color: #111;
+  z-index: 10;
+}
+.unikn-footer span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.4em;
+}
+.unikn-footer .fbar-left  { flex: 0 0 20%; background-color: var(--seeblau4); }
+.unikn-footer .fbar-mid   { flex: 1 1 auto; background-color: var(--seeblau2); }
+.unikn-footer .fbar-right { flex: 0 0 24%; background-color: var(--seeblau1); padding-right: 50px; }
+
+/* Slides that are a single full-bleed figure hide the footer */
+.nofooter .unikn-footer { display: none; }
+
+.remark-slide-number {
+  color: #111;
+  opacity: 1;
+  font-size: 13px;
+  right: 10px;
+  bottom: 6px;
+  z-index: 11;
+}
+
+/* ============================================================================
+ *  Text
+ * ========================================================================== */
+strong { font-weight: bold; color: #111; }
+
+a, a > code {
+  color: var(--karpfenblau);
+  text-decoration: none;
+}
+a:hover { color: var(--seeblau); text-decoration: underline; }
+
+ul { list-style-type: disc; }
+ul ul { list-style-type: circle; }
+li::marker { color: var(--seeblau); }
+ol li::marker { color: var(--grau4); }
+
+blockquote {
+  border-left: 5px solid var(--seeblau);
+  background-color: var(--seeblau1);
+  margin: 0.4em 0;
+  padding: 0.1em 0.8em;
+}
+blockquote p { margin: 0.2em 0; }
+
+.footnote {
+  position: absolute;
+  bottom: 44px;
+  padding-right: 4em;
+  font-size: 0.9em;
+}
+
+.source {
+  font-size: 0.6em;
+  color: var(--grau4);
+}
+
+/* ============================================================================
+ *  Code
+ * ========================================================================== */
+.remark-code, .remark-inline-code { font-family: var(--code-font); }
+.remark-code { font-size: 0.9rem; }
+.remark-inline-code { font-size: 1em; color: var(--bordeaux); }
+
+pre {
+  background-color: #fbfbfb;
+  border: 1px solid var(--grau2);
+  border-radius: 5px;
+}
+pre .remark-code { background: transparent; }
+.remark-code-line-highlighted { background-color: rgba(166, 225, 244, 0.6); }
+
+.remark-slide-content.left pre,
+.remark-slide-content.center pre,
+.remark-slide-content.right pre {
+  text-align: start;
+  width: max-content;
+  max-width: 100%;
+}
+.remark-slide-content.center pre {
+  min-width: 66%;
+  min-width: min(50ch, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================================================
+ *  Layout helpers (same names as xaringan's default theme)
+ * ========================================================================== */
+.left-column  { width: 20%; height: 92%; float: left; }
+.left-column h2, .left-column h3 { color: var(--grau3); }
+.left-column h2:last-of-type, .left-column h3:last-child { color: #111; }
+.right-column { width: 75%; float: right; padding-top: 1em; }
+.pull-left  { float: left;  width: 47%; }
+.pull-right { float: right; width: 47%; }
+.pull-right ~ * { clear: both; }
+
+img, video, iframe { max-width: 100%; }
+
+/* ============================================================================
+ *  Tables
+ * ========================================================================== */
+.remark-slide table {
+  margin: auto;
+  border-collapse: collapse;
+  font-size: 0.85em;
+}
+.remark-slide table thead th {
+  background-color: var(--seeblau1);
+  border-bottom: 2px solid var(--seeblau);
+  text-align: left;
+}
+.remark-slide table td { border-bottom: 1px solid var(--grau1); }
+th, td { padding: 5px 8px; }
+
+/* ============================================================================
+ *  Colour helpers
+ * ========================================================================== */
+.seeblau  { color: var(--seeblau); }
+.bg-seeblau { background-color: var(--seeblau2); }
+.white  { color: #fff; }
+.black  { color: #111; }
+
+@page { margin: 0; }
+@media print {
+  .remark-slide-scaler {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+}
