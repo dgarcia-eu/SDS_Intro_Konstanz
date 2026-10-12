@@ -39,7 +39,7 @@ The course is organized in weekly sessions of 90 minutes. Some sessions are most
 3.2. Google Trends data in R  
 3.3. Correlation and Linear Regression  
 [[Slides]](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/Session03_RetrievingData/Slides/Session03_Slides.html) -- [[Notebook]](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/Session03_RetrievingData/Notebook/Session03_Notebook.html) -- [[Tutorial files]](https://download-directory.github.io/?url=https://github.com/dgarcia-eu/SDS_Intro_Konstanz/tree/main/Session03_RetrievingData/Notebook)  
-[Exercise 1: Google Trends: Do richer countries look more to the future?](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/Session03_RetrievingData/Exercise1/GDP_FOI_Short.html) -- [[Exercise materials zip]](https://download-directory.github.io/?url=https://github.com/dgarcia-eu/SDS_Intro_Konstanz/tree/main/Session03_RetrievingData/Exercise1)  
+[Exercise 1: Google Trends: Do richer countries look more to the future?](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/Session03_RetrievingData/Exercise1/GDP_FOI.html) -- [[Exercise materials zip]](https://download-directory.github.io/?url=https://github.com/dgarcia-eu/SDS_Intro_Konstanz/tree/main/Session03_RetrievingData/Exercise1)  
 
 **Session 4: Social dynamics** -- 09.11.2026  
 4.1. Social Impact Theory  
