@@ -1,0 +1,7 @@
+.Rhistory
+.Rproj.user/
+*_cache/
+__pycache__/
+solutions/
+*_solution.Rmd
+*_solution.html

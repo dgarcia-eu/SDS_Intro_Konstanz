@@ -25,9 +25,10 @@ Setup files: [[Setup instructions]](https://dgarcia-eu.github.io/SDS_Intro_Konst
 The course is organized in weekly sessions of 90 minutes. Some sessions are mostly a lecture with slides, others are practical sessions in which we work  through an R Markdown notebook together. There is an R crash course and five exercises for you to apply what you learned, about one every two weeks. Each exercise starts at the end of a practical session, you continue it at home, and we discuss the results together in a later session. The exercises are not graded but develop the necessary skills to do the final project, which is the basis for the final grade. In exercises, you collect your own data to answer Social Data Science questions. You can submit your solutions to exercises before we discuss them to get extra points.
 
 **Session 1: Introduction to Social Data Science** -- 19.10.2026  
-1.1. Introduction to Social Data Science  
-1.2. The Parable of Google Flu Trends  
-1.3. Measuring Temporal Orientation with Google Trends  
+1.1. Introduction to Social Data Science
+1.2. Course logistics
+1.3. The Parable of Google Flu Trends  
+1.4. Measuring Temporal Orientation with Google Trends  
 [[Slides]](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/Session01_IntroductionToSocialDataScience/Slides/Session01_Slides.html)  
 
 **Session 2: R crash course** -- 26.10.2026  

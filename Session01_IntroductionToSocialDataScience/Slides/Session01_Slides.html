@@ -32,6 +32,7 @@ layout: true
 # Today
 
 1. Introduction to Social Data Science
+1. Course logistics
 1. The Parable of Google Flu Trends
 1. Measuring Temporal Orientation with Google Trends
 
@@ -170,6 +171,116 @@ With the great potential of digital traces also come great challenges:
 Deep Thought, from the movie version of The Hitchhiker's Guide to the Galaxy.
 
 &gt; **Understanding our questions is a prerequisite to understanding their answers.**
+
+---
+class: section, center, middle
+
+# Course logistics
+
+---
+
+# How this course works
+
+- **13 weekly sessions** of 90 minutes, Mondays from 19.10.2026 to 1.02.2027 (no class on 30.11.2026)
+- **Lectures with slides** on Social Data Science topics, and **practical sessions** where we work together through R Markdown notebooks
+- **Exercises** to apply what you learned, about one every two weeks
+- **Final project** of your own: the basis of your grade
+
+All materials (slides, notebooks, exercises, data) are on the course page: &lt;https://dgarcia-eu.github.io/SDS_Intro_Konstanz&gt;. They may be updated during the course, so download them again before each session.
+
+&gt; **Homework for Session 2:** install R and RStudio (see the last slide of today)
+
+---
+
+# Exercises
+
+Each exercise starts at the end of a practical session. You continue it at home, and we discuss the results together in a later session.
+
+| Exercise | Topic | Starts | Discussed in class |
+|---|---|---|---|
+| 0 | BMI and daily steps (practice) | Session 2, 26.10 | |
+| 1 | Future orientation and GDP | Session 3, 02.11 | Session 6, 23.11 |
+| 2 | Division of social impact on Bluesky | Session 6, 23.11 | Session 9, 21.12 |
+| 3 | Evaluating sentiment analysis | Session 8, 14.12 | Session 10, 11.01 |
+| 4 | The retweet network of Swiss politicians | Session 10, 11.01 | Session 12, 25.01 |
+
+The exercises are **not graded**, but they train exactly the skills you need for your project.
+
+---
+
+# Submitting exercises for bonus points
+
+You can submit your solutions to Exercises 1–4 to improve your grade:
+
+- **2 or 3 solutions that pass:** bonus of **0.3** on your grade
+- **All 4 solutions pass:** bonus of **0.6** on your grade
+
+**Deadline:** the day before the exercise is discussed in class (22.11, 20.12, 10.01 and 24.01).
+
+**How:** send the R Markdown file of your solution and its knitted HTML by email to david.garcia@uni-konstanz.de. Make sure that it knits without errors.
+
+---
+
+# Grading: the final project
+
+Your grade is based on an individual project with two parts:
+
+1. **Report** of max. 6 pages (min. font size 11pt), with the R code that generates the results attached. It gives the **numeric grade** of the course (plus the exercise bonus).
+  - **Deadline: 15.03.2027**, submision over email to david.garcia@uni-konstanz.de. 
+  - Please only pdf, not word or anything else.
+2. **Online presentation with Q&amp;A** about your project: pass/fail (Studienleistung), necessary to pass the course. It takes place after the report submission, **between 23.03 and 31.03.2027**.
+
+You can get input on your project ideas and plans in the lectures and in consultations you book by email, until two weeks before the report deadline. **Ask for input early!**
+
+Optionally, send a **short project description** (motivation and project plan) by email to get structured feedback.
+
+---
+
+# Structure of a project report
+
+A good Social Data Science project has seven parts:
+
+1. **Motivation:** What question do you seek to answer and why?
+2. Project plan: Which tasks are needed to answer the question?
+3. Data retrieval: Collect the data with interfaces and other resources
+4. Data processing: Filter data, normalize values, compute variables
+5. **Analysis:** Statistical analyses and visualizations that assess the question
+6. **Conclusion:** Answers to the question and how reliable they are
+7. **Critique:** Limitations and alternative explanations
+
+The parts in bold weigh more in the grade, but all seven have to be reported. Extra points for open science (e.g. code and data on GitHub) and for data or methods beyond the course.
+
+---
+
+# Start with a question
+
+- Social Data Science is **not data-driven**: start with a question about human behavior, not with a cool dataset
+- Good questions have a **yes/no answer or a number**: "Are emotional posts reposted more often?", "Is the Future Orientation Index stable across years?"
+- Questions starting with "how" or "what" are usually too vague: "How do people use TikTok?"
+- Commit to your question early, and document changes of data or methods in your report
+- Results that do not fit your expectations are fine: what matters is that you apply the right methods to the right data
+- Projects are **individual**. Talk with your colleagues, but do not copy code from online resources or coding bots: you have to understand and explain your code in the presentation
+
+---
+
+# Examples of past projects
+
+.pull-left[
+**Popularity assortativity of musicians on Spotify**
+- Network of musicians in the same songs
+- Assortativity of popularity, with a permutation test
+
+**Social Impact Theory and COVID-19**
+- Impact: Google Trends and tweets
+- Immediacy: distance to early outbreaks
+]
+.pull-right[
+**Sentiment about Trump and regional income**
+- Tweet sentiment per region with Syuzhet and VADER, validated by manual annotation
+- Regression with census income and education
+
+More examples and answers to frequent questions in the [projects guide](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/ProjectsGuide.html)
+]
 
 ---
 class: section, center, middle
