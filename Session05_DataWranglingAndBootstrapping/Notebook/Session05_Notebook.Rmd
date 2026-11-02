@@ -1,0 +1,310 @@
+---
+title: "Session 5: Data wrangling and bootstrapping"
+subtitle: "Introduction to Social Data Science &ndash; University of Konstanz"
+author: "David Garcia, Winter Semester 2026/27"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    css: ../../assets/unikn-notebook.css
+---
+
+# Data wrangling with dplyr
+
+Welcome to the Social Data Science dplyr tutorial! This will be a quick introduction into one of the most useful tools to handle large datasets by producing code that is easy to read.
+
+If your R installation does not work, you can run this notebook in Posit Cloud, following the [fallback in the setup instructions](../../setup/Setup.html#fallback-posit-cloud).
+
+## Introduction to dplyr
+
+dplyr  <https://dplyr.tidyverse.org/> is a package for data manipulation, which is the process of  re-sorting, rearranging, and moving data, without fundamentally changing it. It provides a way to make your data more readable and organized in an efficient way.
+
+dplyr provides "verbs" that you can apply to the data frame that you are working on. Here we are going to see the following:
+
+- *select* columns from a data frame
+- *filter* rows that you want in a data frame
+- *arrange* a data frame to sort it
+- *group_by* when you want to run analyses over groups defined by one column or more
+- *summarise* to run analyses over those groups
+- *inner_join* to merge data frames very efficiently
+
+## 0. Installing dplyr
+
+Some versions of RStudio bring dplyr installed by default, but run the following chunk to install it in any case:
+```{r p1-install, eval=F}
+install.packages("dplyr")
+```
+
+Once you have it installed, load it with the library function.
+```{r p1-load}
+library(dplyr)
+```
+
+For this tutorial we are going to use the data from the National Health Interview Survey of 2007.
+```{r p1-data}
+NHIS2007 <- read.csv("NHIS2007.csv")
+head(NHIS2007)
+```
+
+
+## 1. Selecting columns
+
+select() lets you subset by columns. The first parameter of select() is the data frame, the second is a selection of columns. For example to get just the column BMI:
+```{r p1-select1}
+head(select(NHIS2007, BMI))
+```
+
+But you can also select subsets of columns like the first three:
+```{r p1-select2}
+head(select(NHIS2007, 1:3))
+```
+
+or a range:
+```{r p1-select3}
+head(select(NHIS2007, SEX:educ))
+```
+
+Your turn: select the first and last columns.
+```{r p1-select4}
+# Your code here
+```
+
+## 2. Filtering rows
+
+filter() allows you to subset rows that fulfill a condition. The second parameter is a logical statement to take only rows for which it is TRUE.
+ 
+For example, to get the rows corresponding to people that sleep less than 8 hours:
+```{r p1-filter1}
+head(filter(NHIS2007, SLEEP < 8))
+```
+
+Your turn: get the rows with BMI between 20 and 30
+```{r p1-filter2}
+# Your code here
+```
+
+## 3. Arranging to sort
+
+arrange() sorts the rows by one or more columns in ascending or descending order
+
+For example, to arrange the rows in the order of ascending "BMI"
+```{r p1-arrange1}
+head(arrange(NHIS2007, BMI))
+```
+
+And in the order of descending "BMI"
+```{r p1-arrange2}
+head(arrange(NHIS2007, desc(BMI)))
+```
+
+Or sorted first by SLEEP and then by BMI
+```{r p1-arrange3}
+head(arrange(NHIS2007, SLEEP, BMI))
+```
+
+Your turn: by descending weight first and then by height
+```{r p1-arrange4}
+# Your code here
+```
+
+## 4. Pipes
+
+When you load dplyr, you also load another package called magrittr, which includes a special command called the pipe (%>%). Pipes are useful to simplify code. Pipes connect two commands such that the *result of the first command* is the input to the *first parameter of the second command*. 
+
+For example, to filter first for BMI lower than 30, select the columns height and education, and then sort by height:
+```{r}
+NHIS2007 %>%
+  filter(BMI < 30) %>%
+    select(height, educ) %>%
+      arrange(height) %>% head()
+```
+
+Your turn: sort reversed by BMI and then filter by weight below 150
+```{r}
+# Your code here
+```
+
+## 5. Grouping and summarising
+
+The commands group_by and summarise are very useful to calculate aggregated values over groups of rows determined by one or more columns. The result has only the columns used for the group_by and the ones calculated by summarise.
+```{r}
+NHIS2007 %>%
+  group_by(SEX) %>%
+    summarise(AvgBMI = mean(BMI, na.rm = TRUE)) %>% head()
+```
+
+Your turn: calculate the minimum height for each education level
+```{r}
+# Your code here
+```
+
+## 6. Merging with inner join
+
+Sometimes you have two data frames and you want to merge them according to the values of a column. The merge function of R can do that, but the inner_join function of dplyr is much, much faster:
+
+```{r}
+df1 <- data.frame(a=c(1,2,3), b=c("one","two","three"))
+df2 <- data.frame(a=c(2,3,3), x=c("x","y","z"), z=c(1,1,1))
+head(inner_join(df1,df2))
+```
+
+inner_join automatically takes the common columns for the merging, but you can also specify which columns to use:
+```{r}
+head(inner_join(df1,df2, by=c("a"="z")))
+```
+
+For further practice: Take your solution of our FOI and GDP exercise and change the merge commands to inner_join commands.
+
+To learn more:
+
+- Tutorial on dplyr by Sean Anderson <https://web.archive.org/web/20180302012450/http://seananderson.ca/2014/09/13/dplyr-intro.html>
+- Data transformation chapter of R for Data Science <https://r4ds.hadley.nz/data-transform.html>
+
+# Bootstrapping
+
+## What is bootstrapping?
+
+Bootstrapping is a method to understand the uncertainty of a measurement on a sample. Bootstrapping is based on resampling and repeating the measurement to have an idea of its distribution of possible values over other samples of the same size.
+
+Imagine that we want to measure the mean height of the people in a country. To have an idea of that value, we can draw a representative sample of people in the country such that it has similar fractions of people by gender, age, ethnicity, etc as the country. We can measure the mean over that sample, but how certain are we of that measure? What other values for the mean could we expect if we produced another sample?
+
+![](Bootstrapping.png){width=70%}
+
+To perform bootstrapping, we generate bootstrap samples from the original sample we had. Bootstrap samples are samples of the same size as our original sample but **with replacement**, which means that every time we sample an element, we put it back and it could be sampled again. This way we could sample some elements more than once and others maybe not even once. Then over this bootstrap sample, we measure the same metric, in our example the mean of the height of people. Then we repeat this bootstrap sampling many times, for example 10000 times, and record the same metric on every sample. The resulting distribution of metric values gives us an idea of what would be the value of the mean if we applied it to other subsamples of the total population.
+
+When we bootstrap we are simulating the sampling process that gave us the original sample. It is a good way to understand the uncertainty of the metric if the original sample we had was representative of the total population. You can learn some examples of what can happen when samples are not representative in the [Social Data Science Story about predicting elections with Twitter](https://dgarcia-eu.github.io/SocialDataScience/Handouts/4_SNA/043_TwitterOpinions/TwitterOpinions.html).
+
+## R example 1: the mean of a variable
+
+Bootstrapping in R is very easy and given the computational power we have nowadays, it is easily an option to understand the uncertainty of a measurement. For our first example in R we are going to use the data from a health survey and to apply bootstrapping to the mean height in the sample.
+
+First, we load the data and measure the mean over our sample:
+```{r }
+# Height Data from National Health Interview Survey (NHIS) 2007
+DataFrame <- read.csv("NHIS2007.csv")
+ObservedHeights <- DataFrame$height
+mean(ObservedHeights)
+```
+
+Now we resample once with replacement and compute the mean over the resulting bootstrap sample:
+```{r }
+BootSample <- sample(ObservedHeights, replace = T)
+mean(BootSample)
+```
+
+You will see that this mean value is slightly different from the first one. We have simulated what would be another sample from the total population, assuming that the first sample was representative of the total population.
+
+Now we can repeat the bootstrap sample and measurement a lot of times, here we do it 10000 times with a loop, saving the results in a vector:
+```{r }
+# obtaining M bootstrap samples and calculate mean value of each bootstrap sample
+M <- 10000
+r.mean <- numeric(M)
+for(i in 1:M)
+{
+  BootSample <- sample(ObservedHeights, replace = T)
+  r.mean[i] <- mean(BootSample)
+}
+```
+
+It might take a few seconds for this small sample but with larger ones, you might want to try 1000 or 5000 samples only unless you want to leave the analysis running overnight.
+
+Over the results we can now see the median, which is the point that separates 50% of the results on one side and 50% on the other:
+
+```{r }
+median(r.mean) # median of the bootstrap samples
+```
+This median is extremely close to the mean we calculated over the full sample. This means that our measurement was *unbiased*, but this might not always happen. It is good to compare these two values because intuition might be wrong.
+
+Now we can assess the uncertainty of the measurement by surveying the distribution of measurements over the bootstrap samples:
+```{r }
+hist(r.mean) # plot histogram of the measured means over the boostrap samples
+```
+
+The histogram is pretty concentrated around the median value, we can barely see any example below 69.1 or above 70. To be more precise about this we can calculate the standard deviation of this distribution or the 95% high density interval, which is the interval between the 2.5% lowest value and the 97.5% highest value:
+
+```{r }
+sd(r.mean) # standard deviation of the bootstrap samples
+quantile(r.mean, probs=c(0.025, 0.975))
+```
+As you see, the standard deviation is very low, way less than one, and 95% of the examples fell between ```r quantile(r.mean, 0.025)``` and ```r quantile(r.mean, 0.975)```. This way we can say that we are pretty confident that the mean over the total population will be close to the value we measured over our sample.
+
+## R example 2: the slope of a regression model
+
+We can apply bootstrapping to many measurements. The estimation of a regression coefficient or of a correlation coefficient are examples where you can apply bootstrapping. Let's see how bootstrapping can be useful in the case of the regression model of [GDP as a function of FOI](../../Session03_RetrievingData/Slides/Session03_Slides.html) we saw earlier.
+
+First, we load the data, fit the model, and see the value of the slope we got in our fit:
+```{r echo=F, message=F, results='hide'}
+library(dplyr)
+df <- read.csv("FOI.csv")
+df$GDP <- df$NY.GDP.PCAP.PP.KD
+df %>% filter(SP.POP.TOTL*IT.NET.USER.ZS/100 > 5000000) -> df
+
+model <- lm(GDP~FOI, df)
+model$coefficients[2]
+```
+
+Now we can do as we did for the mean, but instead we fit the regression model and save the coefficient in our vector. We also save intercepts to make plots later. Here our sample is countries, so we always select a new sample of countries and use their corresponding pairs of GDP and FOI:
+```{r }
+# obtaining M bootstrap samples and calculate mean value of each bootstrap sample
+M <- 10000
+bootSlopes <- numeric(M)
+bootIntercepts <- numeric(M)
+for(i in 1:M)
+{
+  BootSample <- sample(nrow(df), replace = T)
+  bootmodel <- lm(df$GDP[BootSample] ~ df$FOI[BootSample])
+  bootSlopes[i] <- bootmodel$coefficients[2]
+  bootIntercepts[i] <- bootmodel$coefficients[1]
+}
+```
+
+Now we can have an idea of the bias in the measurement and its uncertainty by looking at the values we got from bootstrapping:
+```{r }
+median(bootSlopes)
+sd(bootSlopes)
+hist(bootSlopes)
+quantile(bootSlopes, probs = c(0.025, 0.975))
+```
+
+The measurement is unbiased but there is quite a variance in the results. The standard deviation is about 7000 and the 95% density interval goes from about 40000 to almost 70000. We can be sure that it is larger than zero, but the real value for a larger sample could vary quite a bit.
+
+We can have an idea of how the fits vary if we plot many of them over the scatterplot. Using transparent lines over 1000 of the samples, we can see how the line varies:
+
+```{r}
+plot(df$FOI, df$GDP, xlab="FOI", ylab="GDP per capita")
+for(i in 1:1000)
+{
+  abline(bootIntercepts[i], bootSlopes[i], col=rgb(1,0,0,0.01))
+}
+abline(model$coefficients[1], model$coefficients[2], col="red")
+```
+
+## Faster bootstrapping with the boot library
+
+Bootstrapping with loops as above is a good way to start, but you can do it much, much faster with the boot library. First, you have to code a function that calculates your metric over the bootstrap sample when given the indices of the entries to use in the calculation. Here is an example for the mean: 
+
+```{r }
+library(boot)
+ReturnMean <- function(datav, sampleindices) 
+{
+  d <- datav[sampleindices] # we will use this for bootstrapping
+  return( mean(d) )
+}
+```
+
+In the above function, the first parameter is the full sample and the second one is the sampled indices, which will be recalculated for every bootstrap sample.
+
+Now you can use the boot() function. It takes the full dataset, the function we coded above, and the number of samples we want to make: 
+
+```{r }
+## Bootstrapping with 10000 replications
+results <- boot(data=as.vector(ObservedHeights), statistic=ReturnMean, R=10000)
+```
+
+This is much faster than a loop! Now you have the results of the measurement over each bootstrap sample in the $t$ field of the result. Here's the histogram:
+
+```{r }
+hist(results$t)
+```
+
+The boot function is very useful when you are doing all kinds of resampling tasks. For example, if you want to speed up your computations in the [permutation tests tutorial](../../Session11_SocialNetworkStructures/Notebook/Session11_Notebook.Rmd), you can use boot() with the parameter *sim* set to 'permutation'.
