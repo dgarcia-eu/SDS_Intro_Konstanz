@@ -51,7 +51,7 @@ The course is organized in weekly sessions of 90 minutes. Some sessions are most
 **Session 5: Data wrangling and bootstrapping** -- 16.11.2026  
 5.1. Data wrangling with dplyr  
 5.2. Bootstrapping  
-[[Slides]](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/Session05_DataWranglingAndBootstrapping/Slides/Session05_Slides.html) -- [[Notebook]](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/Session05_DataWranglingAndBootstrapping/Notebook/Session05_Notebook.html) -- [[Tutorial files]](https://download-directory.github.io/?url=https://github.com/dgarcia-eu/SDS_Intro_Konstanz/tree/main/Session05_DataWranglingAndBootstrapping/Notebook)  
+[[Notebook]](https://dgarcia-eu.github.io/SDS_Intro_Konstanz/Session05_DataWranglingAndBootstrapping/Notebook/Session05_Notebook.html) -- [[Tutorial files]](https://download-directory.github.io/?url=https://github.com/dgarcia-eu/SDS_Intro_Konstanz/tree/main/Session05_DataWranglingAndBootstrapping/Notebook)  
 
 **Session 6: APIs and Wrappers** -- 23.11.2026  
 6.1. Accessing APIs  
